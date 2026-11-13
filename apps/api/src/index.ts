@@ -1,6 +1,6 @@
-import { buildApp } from './app.js';
-import { loadBusinessConfig } from './config/business-config.js';
-import { loadEnv } from './config/env.js';
+import { buildApp } from "./app.js";
+import { loadBusinessConfig } from "./config/business-config.js";
+import { loadEnv } from "./config/env.js";
 
 const env = loadEnv();
 const app = await buildApp(env, await loadBusinessConfig());

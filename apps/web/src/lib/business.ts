@@ -1,11 +1,26 @@
-import type { BusinessConfig } from '@altrimar/shared';
+import type { BusinessConfig } from "@altrimar/shared";
 
 export const fallbackBusiness: BusinessConfig = {
-  identity: { name: 'Mariscos ALTRIMAR', tagline: 'Mariscos 100% Sinaloenses', logoPath: '/assets/social/aceptado/logo_sin_fondo.png' },
-  contact: { whatsApp: '5218112154649', hours: 'Jueves a domingo, de 12:00 a 18:00' },
-  ordering: { enabled: false, whatsAppMessage: 'Hola, quiero hacer un pedido en Mariscos ALTRIMAR.' },
-  theme: { primary: '#12468A', accent: '#FF631C', surface: '#F8F4E9' },
-  temporaryMenu: { imagePath: '/assets/social/aceptado/1660619b-60d0-4bb5-be4e-27c67a1ec51f.png', updatedLabel: 'Consulta nuestro menú vigente' },
+  identity: {
+    name: "Mariscos ALTRIMAR",
+    tagline: "Mariscos 100% Sinaloenses",
+    logoPath: "/assets/social/aceptado/logo_sin_fondo.png",
+  },
+  contact: {
+    whatsApp: "5218112154649",
+    hours: "Jueves a domingo, de 12:00 a 18:00",
+  },
+  ordering: {
+    enabled: false,
+    whatsAppMessage: "Hola, quiero hacer un pedido en Mariscos ALTRIMAR.",
+  },
+  theme: { primary: "#12468A", accent: "#FF631C", surface: "#F8F4E9" },
+  temporaryMenu: {
+    imagePath:
+      "/assets/social/aceptado/1660619b-60d0-4bb5-be4e-27c67a1ec51f.png",
+    updatedLabel: "Consulta nuestro menú vigente",
+  },
 };
 
-export const whatsAppUrl = (business: BusinessConfig) => `https://wa.me/${business.contact.whatsApp}?text=${encodeURIComponent(business.ordering.whatsAppMessage)}`;
+export const whatsAppUrl = (business: BusinessConfig) =>
+  `https://wa.me/${business.contact.whatsApp}?text=${encodeURIComponent(business.ordering.whatsAppMessage)}`;
