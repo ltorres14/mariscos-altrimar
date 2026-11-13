@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+data/*.db
+data/*.sqlite
+data/*.ndjson
+data/*.log
+apps/bot/.wwebjs_auth/
+apps/bot/.wwebjs_cache/
+coverage/
+*.tsbuildinfo

@@ -1,0 +1,10 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "sqlite"; url = env("DATABASE_URL") }
+
+model BusinessSetting { key String @id; value Json; updatedAt DateTime @updatedAt }
+model Category { id String @id; name String; slug String @unique; displayOrder Int; available Boolean @default(true); products Product[] }
+model Product { id String @id; categoryId String; category Category @relation(fields: [categoryId], references: [id]); name String; description String?; priceCents Int; imagePath String?; available Boolean @default(true); displayOrder Int; variants ProductVariant[]; extras ProductExtra[] }
+model ProductVariant { id String @id; productId String; product Product @relation(fields: [productId], references: [id]); name String; priceCents Int }
+model ProductExtra { id String @id; productId String; product Product @relation(fields: [productId], references: [id]); name String; priceCents Int }
+model Order { id String @id; customerName String; customerPhone String; notes String?; status String; createdAt DateTime @default(now()); items OrderItem[] }
+model OrderItem { id String @id; orderId String; order Order @relation(fields: [orderId], references: [id]); productId String; productName String; unitPriceCents Int; quantity Int; selections Json? }

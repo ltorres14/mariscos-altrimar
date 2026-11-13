@@ -1,0 +1,17 @@
+services:
+  altrimar:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NODE_ENV: production
+      API_HOST: 0.0.0.0
+      API_PORT: 3083
+      WEB_DIST_DIR: apps/web/dist
+      CORS_ORIGIN: https://mariscos-altrimar.torreconecta.site
+    ports:
+      - "127.0.0.1:3083:3083"
+    volumes:
+      - ./data:/app/data
